@@ -1,0 +1,41 @@
+2012/02/06 16:55:45 [error] [php] file_put_contents(/var/www/blog/protected/runtime/gii-1.1.9/ModelCode.php): failed to open stream: Permission denied (/var/www/yii/framework/gii/CCodeModel.php:309)
+Stack trace:
+#0 /var/www/yii/framework/gii/CCodeGenerator.php(64): ModelGenerator->prepare()
+#1 /var/www/yii/framework/web/actions/CInlineAction.php(50): ModelGenerator->actionIndex()
+#2 /var/www/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /var/www/yii/framework/web/CController.php(287): ModelGenerator->runAction()
+#4 /var/www/yii/framework/web/CController.php(266): ModelGenerator->runActionWithFilters()
+#5 /var/www/yii/framework/web/CWebApplication.php(276): ModelGenerator->run()
+#6 /var/www/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#7 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /var/www/blog/index.php(13): CWebApplication->run()
+REQUEST_URI=/blog/index.php?r=gii/model
+in /var/www/blog/index.php (13)
+2012/02/06 17:53:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "comments/admin".' in /var/www/yii/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('comments/admin')
+#1 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/blog/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/blog/index.php?r=comments/admin
+---
+2012/02/07 16:46:18 [error] [exception.CException] exception 'CException' with message 'Property "UserIdentity.id" is read only.' in /var/www/yii/framework/base/CComponent.php:171
+Stack trace:
+#0 /var/www/blog/protected/components/UserIdentity.php(23): CComponent->__set('id', '1')
+#1 /var/www/blog/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#2 /var/www/yii/framework/validators/CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#3 /var/www/yii/framework/validators/CValidator.php(197): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#4 /var/www/yii/framework/base/CModel.php(158): CValidator->validate(Object(LoginForm), NULL)
+#5 /var/www/blog/protected/controllers/SiteController.php(88): CModel->validate()
+#6 /var/www/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionLogin()
+#7 /var/www/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /var/www/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#9 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/yii/framework/web/CWebApplication.php(276): CController->run('login')
+#11 /var/www/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('site/login')
+#12 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /var/www/blog/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/blog/index.php?r=site/login
+HTTP_REFERER=http://localhost/blog/index.php?r=site/login
+---
